@@ -3,10 +3,13 @@ node
 	stage('SCM')
 	{
 		echo 'Pulling source from Git repo'
+		git branch '${branch}', url:'https://github.com/OneBlueBird/DotNetCoreApps.git'
 	}
 	stage('Build')
 	{
 		echo 'Building...'
+		sh 'dotnet --version'
+		sh 'dotnet build CloudifyConsoleApps.sln'
 	}
 	stage('Test')
 	{
