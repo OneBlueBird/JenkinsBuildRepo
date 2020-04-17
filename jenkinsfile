@@ -1,5 +1,9 @@
 node
 {
+	stage('SCM')
+	{
+		echo 'Pulling source from Git repo'
+	}
 	stage('Build')
 	{
 		echo 'Building...'
