@@ -20,9 +20,9 @@ node
 	stage('Docker build/push')
 	{
 	    echo 'Building docker image...'
-            docker.withRegistry('https://hub.docker.com/repository/docker', 'dockerhub') {
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
               def app = docker.build("virtualbinaries/dotnetcoreapps", ".").push()
-            }
+         }
 	}
         stage('Deploy')
         {
