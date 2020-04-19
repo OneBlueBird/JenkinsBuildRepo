@@ -8,6 +8,8 @@ node
 	stage('Build')
 	{
 		echo 'Building...'
+                sh 'dotnet clean'
+                sh 'dotnet restore'
 		sh 'dotnet --version'
 		sh 'dotnet build CloudifyConsoleApps.sln'
 	}
