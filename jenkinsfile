@@ -15,6 +15,18 @@ node
 	{
 		echo 'Testing...'
 	}
+	steps('Package')
+	{
+            dockerBuildAndPublish {
+	      repositoryName('virtualbinaries/dotnetcoreapps')
+	      tag('${GIT_REVISION,length=9}')
+              registryCredentials('dockerhub')
+              forcePull(false)
+              forceTag(false)
+              createFingerprints(false)
+              skipDecorate()
+            }
+        }
 	stage('Deploy')
 	{
 		echo 'Deploying...'
